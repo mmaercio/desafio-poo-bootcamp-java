@@ -6,7 +6,6 @@ import java.util.Set;
 public class Dev {
 
     private String nome;
-
     private Set<Conteudo> conteudosInscritos = new HashSet<>();
     private Set<Conteudo> conteudosConcluidos = new HashSet<>();
 
@@ -21,16 +20,16 @@ public class Dev {
             conteudosConcluidos.add(conteudo);
             conteudosInscritos.remove(conteudo);
         } else {
-            System.out.println("Nenhum conteúdo para progredir");
+            System.out.println("Nenhum conteúdo disponível para progresso.");
         }
     }
 
     public double calcularXp() {
-        double total = 0;
-        for (Conteudo c : conteudosConcluidos) {
-            total += c.calcularXp();
+        double totalXp = 0;
+        for (Conteudo conteudo : conteudosConcluidos) {
+            totalXp += conteudo.calcularXp();
         }
-        return total;
+        return totalXp;
     }
 
     public String getNome() {
@@ -39,5 +38,13 @@ public class Dev {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Set<Conteudo> getConteudosInscritos() {
+        return conteudosInscritos;
+    }
+
+    public Set<Conteudo> getConteudosConcluidos() {
+        return conteudosConcluidos;
     }
 }

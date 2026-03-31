@@ -8,36 +8,40 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        Curso curso1 = new Curso();
-        curso1.setTitulo("Java Básico");
-        curso1.setDescricao("Aprendendo o básico");
-        curso1.setCargaHoraria(8);
+        Curso cursoJavaBasico = new Curso();
+        cursoJavaBasico.setTitulo("Fundamentos de Java");
+        cursoJavaBasico.setDescricao("Conceitos iniciais da linguagem Java");
+        cursoJavaBasico.setCargaHoraria(8);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("POO");
-        curso2.setDescricao("Conceitos de orientação a objetos");
-        curso2.setCargaHoraria(4);
+        Curso cursoPOO = new Curso();
+        cursoPOO.setTitulo("POO com Java");
+        cursoPOO.setDescricao("Aplicando os pilares da orientação a objetos");
+        cursoPOO.setCargaHoraria(4);
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("Mentoria Java");
-        mentoria.setDescricao("Dúvidas e carreira");
-        mentoria.setData(LocalDate.now());
+        Mentoria mentoriaJava = new Mentoria();
+        mentoriaJava.setTitulo("Mentoria de Carreira em Java");
+        mentoriaJava.setDescricao("Troca de experiência sobre estudos e mercado");
+        mentoriaJava.setData(LocalDate.now());
 
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java");
-        bootcamp.setDescricao("Treinamento de Java");
+        Bootcamp bootcampJava = new Bootcamp();
+        bootcampJava.setNome("Bootcamp Java Developer");
+        bootcampJava.setDescricao("Bootcamp voltado para prática de Java e POO");
 
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+        bootcampJava.getConteudos().add(cursoJavaBasico);
+        bootcampJava.getConteudos().add(cursoPOO);
+        bootcampJava.getConteudos().add(mentoriaJava);
 
-        Dev dev = new Dev();
-        dev.setNome("Maercio");
-        dev.inscreverBootcamp(bootcamp);
+        Dev desenvolvedor = new Dev();
+        desenvolvedor.setNome("Maercio Rogers");
+        desenvolvedor.inscreverBootcamp(bootcampJava);
 
-        dev.progredir();
-        dev.progredir();
+        System.out.println("Conteúdos inscritos: " + desenvolvedor.getConteudosInscritos());
+        System.out.println("XP inicial: " + desenvolvedor.calcularXp());
 
-        System.out.println("XP total: " + dev.calcularXp());
+        desenvolvedor.progredir();
+        desenvolvedor.progredir();
+
+        System.out.println("Conteúdos concluídos: " + desenvolvedor.getConteudosConcluidos());
+        System.out.println("XP final: " + desenvolvedor.calcularXp());
     }
 }
